@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: nfs_client
   author: James Hemmen
   description: A role to mount multiple NFS shares to a host.
 
