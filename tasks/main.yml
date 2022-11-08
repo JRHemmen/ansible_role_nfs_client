@@ -1,0 +1,12 @@
+---
+- name: Ensure NFS is installed
+  ansible.builtin.package:
+    state: present
+    name:
+      - nfs-common
+      - nfs4-acl-tools
+
+- name: Create NFS mounts
+  ansible.builtin.include_tasks: create_nfsmounts.yml
+  loop: "{{ nfs_mounts }}"
+  when: nfs_mounts is defined and nfs_mounts is iterable

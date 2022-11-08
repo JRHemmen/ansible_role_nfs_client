@@ -1,0 +1,4 @@
+---
+nfs_server:
+nfs_volume:
+mount_options: "rw,async,soft"

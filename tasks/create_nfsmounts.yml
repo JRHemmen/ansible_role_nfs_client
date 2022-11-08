@@ -1,0 +1,14 @@
+---
+- name: "Create mountpoint for {{ item }}"
+  ansible.builtin.file:
+    path: "{{ mount_path }}/{{ item }}"
+    state: directory
+    mode: "0775"
+
+- name: "Mount NFS share for {{ item }}"
+  ansible.posix.mount:
+    src: "{{ nfs_server }}:{{ nfs_volume }}/{{ item }}"
+    path: "{{ mount_path }}/{{ item }}"
+    opts: "{{ mount_options }}"
+    state: mounted
+    fstype: "{{ fstype }}"
