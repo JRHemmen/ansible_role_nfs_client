@@ -35,7 +35,7 @@ Example Playbook
       hosts: all
       become: yes
       roles:
-        - nfs_client
+        - jrhemmen.nfs_client
       tags:
         - nfs_client
 
